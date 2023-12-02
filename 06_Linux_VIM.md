@@ -109,3 +109,11 @@ in lines 2 and 3 and 4, the word (( Hi )) with checking case-insensitively will 
 to undo press (( u )) in command mode. this will undo the last action. you can undo to 2 previous action by pressing (( u )) 2 times, or in command mode press the number of previous action that in our example is 2, and the press (( u )).
 
 to redo press (( ctrl + r )) in command mode. this will redo the last undo in its stack. you can redo to 2 prescinding action by pressing (( ctrl + r )) 2 times, or in command mode press the number of prescinding action that in our example is 2, and the press (( ctrl + r )). 
+
+
+
+***
+
+# Paste
+
+to paste a text from clipboard to vim,  switch to insert mode by pressing (( i )), and then press (( shift )) and right click on somewhere in opened file in vim, then select (( paste )) item from context menu. 

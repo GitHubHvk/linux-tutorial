@@ -67,7 +67,7 @@
 
 - ###### echo my message
   
-  - prints (( my message )) to the standard output
+  - prints (( my message )) to the standard output.
 - ###### echo *
   
   - print names of all files and directory of current working
@@ -91,9 +91,15 @@
 - ###### cd /dir1
   
   - navigate to directory dir1
+  
 - ###### cd
   
   - returns to home directory of current user
+  
+- ###### cd .. 
+
+  - navigate to previous directory
+
 
 
 
@@ -153,7 +159,7 @@
 
 # sudoers
 
-add user to sudoers:
+## add user to sudoers:
 
  - su -
  - nano /etc/sudoers
@@ -256,7 +262,7 @@ add user to sudoers:
 
 # passwd
 
-use this command to change your password. it will ask you your old pass, and well get new password from you
+use this command to change your password. it will ask you your old pass, and will get new password from you
 
 
 
