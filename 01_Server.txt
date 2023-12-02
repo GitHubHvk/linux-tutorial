@@ -1,0 +1,5 @@
+in linux installing:
+ - best practice for directory volume in server:
+   - directory (( / )): 30% to 50GB
+   - directory (( /boot )): 2GB
+   - directory (( /var )): remaining

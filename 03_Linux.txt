@@ -1,0 +1,96 @@
+pocess:
+ - forgraound
+ - background
+
+commands:
+ - top: to see top processes
+ - ps: some process
+ - ps -aux
+ - ps grep | grep vim: list all processes related to vim 
+ - pidof vim: show all pid of vim
+ - systemctl: to manage services
+ - systemctl mask service_name: to prevent start of service manually
+ - journalctl: to show log of a service
+ - pidof nginx | xargs sudo kill -9 
+ - lsblk: to see fstab of system
+ - fdisk: to extend disk
+ - df -h: disk format human readable
+ - dft -h -i: disk format human readable for inodes
+ - lsplk
+ - du -sh /var: show volume in var dir
+ - ncdu
+ - mount
+ - mkfs
+ - . : here
+ - .. : 1 dir prev
+ - ~ : is simbole of home directory
+ - cfdisk
+ - cd: to naviaget in dir
+ - ls: to list dir
+ - cp: copy file or dir
+ - pws: show current dir
+ - mkdir: create dir
+ - mv:
+ - rmdir: delete dir if dir is emty
+ - touch:
+ - rm -rf dirname: remove anyway
+ - blkud
+ - adduser
+ - userdel
+ - w: show all sessions working with the server
+ - ip a: list all ips of server
+ - last: list last login logs
+ - su: super user
+ - ls -alh
+ - chmod: change permission (chmod 755 foo)
+ - chown: change owner
+ - vimdiff
+
+commands to track log files:
+ - cat: all 
+ - less: all with pagination
+ - tail: 10 lines from end
+ - tail -f: 10 lines from end and follow to update the content shown
+  -head: 10 lines from top
+
+
+inode: some how like pointer to the real data
+
+/etc/resolve.conf
+single tread and multi thread
+
+
+grub2 is a favorite bootloader in linux
+
+
+LVM: to extend volumes logically
+vagrant up
+
+fsatab
+
+
+ssh: is a way to repote connect to anoter linux in a secure way
+ - can be log in ith user and password
+ - also can be log in with private key (( ssh-keygen))
+   - ssh-keygenS
+   - ssh-copy-id 
+
+ss -nlsp
+apt install openssh-server
+
+
+try to open sudoers with vi to prevent mistake save
+
+
+sudoers file is located in pat (( /ets/sudoers ))
+
+
+cli editor: vim nano vmacs
+gui: vscode gedit sublime
+
+
+logrotation: to minimize logs
+
+
+
+pipeline and cron and proxy
