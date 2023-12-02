@@ -477,3 +477,16 @@ so to set an environment variable named (( MTG )) globally accessible for all us
 
   - list all numbers related to different signals.
 
+
+
+***
+
+# ‌Background process
+
+you run a program that is time consuming one, to the background (detach it from shell) by writing (( & )) at the end of command.
+
+
+
+## Example 1:
+
+gunzip f2.gz & 
