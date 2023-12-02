@@ -116,4 +116,4 @@ to redo press (( ctrl + r )) in command mode. this will redo the last undo in it
 
 # Paste
 
-to paste a text from clipboard to vim,  switch to insert mode by pressing (( i )), and then press (( shift )) and right click on somewhere in opened file in vim, then select (( paste )) item from context menu. 
+to paste a text from clipboard to vim,  switch to insert mode by pressing (( i )), and then press and hold (( shift )) and right click on somewhere in opened file in vim, then select (( paste )) item from context menu. 
