@@ -99,3 +99,13 @@ this example replaces the (( Hi )) with (( Hello )) in entire lines of the file 
 **2,4s/Hi/Hello and Welcome/gci**
 
 in lines 2 and 3 and 4, the word (( Hi )) with checking case-insensitively will be replaced globally with (( Hello and Welcome )) and in each replacement a confirmation will be asked from you.
+
+
+
+***
+
+# Undo, Redo
+
+to undo press (( u )) in command mode. this will undo the last action. you can undo to 2 previous action by pressing (( u )) 2 times, or in command mode press the number of previous action that in our example is 2, and the press (( u )).
+
+to redo press (( ctrl + r )) in command mode. this will redo the last undo in its stack. you can redo to 2 prescinding action by pressing (( ctrl + r )) 2 times, or in command mode press the number of prescinding action that in our example is 2, and the press (( ctrl + r )). 
