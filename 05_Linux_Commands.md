@@ -206,6 +206,10 @@ this a value that when a file or directory is created, to calculate permission t
 
 
 
+**caution:** it is better to open and modify sudoers file with (( visudo )) command, it checks the syntax before saving the file. 
+
+
+
 ***
 
 # less
