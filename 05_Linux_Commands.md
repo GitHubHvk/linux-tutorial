@@ -210,6 +210,14 @@ this a value that when a file or directory is created, to calculate permission t
 
 
 
+## Log
+
+to see sudo logs, you can run following command (( case-sensitive )):
+
+- ###### journalctl SYSLOG_IDENTIFIER=sudo
+
+
+
 ***
 
 # less
