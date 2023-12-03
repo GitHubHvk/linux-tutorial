@@ -155,6 +155,30 @@
 
 
 
+## working with characters
+
+imagine file (( f2 )) with permission (( rwx------ ))
+
+1. ###### chmod g+r f2
+
+   1. change permission to (( rwxr----- ))
+
+2. ###### chmod u-r
+
+   1. change permission to (( -wxr----- ))
+
+3. ###### chmod u-wx f2
+
+   1. change permission to (( ---r----- ))
+
+4. ###### chmod u+x,g+w,o+r f2
+
+   1. change permission to (( --xrw-r-- ))
+
+
+
+
+
 ***
 
 # sudoers
@@ -490,3 +514,24 @@ you run a program that is time consuming one, to the background (detach it from 
 ## Example 1:
 
 gunzip f2.gz & 
+
+
+
+***
+
+# Groups
+
+this command shows the name of primary or any supplementary groups for each given user if specified, and for current session user if not specified.
+
+- ###### groups
+
+  - prints group of current session user 
+
+- ###### groups 'hamed'
+
+  - print group of user (( hamed ))
+
+
+
+***
+
