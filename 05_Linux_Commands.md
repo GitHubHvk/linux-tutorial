@@ -560,3 +560,27 @@ creates a symbolic link.
 - ###### ln -s /var/test dlink
 
   - this command creates a symbolic link for the path (( /var/test )) with name (( dlink )) that is located in the current working directory.
+
+
+
+***
+
+# gzip
+
+this command compress just one file with extension (( .gz )) and remove the original file.
+
+- ###### gzip f1.txt
+
+  - this command create file (( f1.txt.gz )) and remove (( f1.txt ))
+
+
+
+***
+
+# gunzip
+
+this command unzip the file (( .gz )) and remove it.
+
+- ###### gunzip f1.txt.gz
+
+  - this command unzip file (( f1.txt.gz )) to (( f1.txt )) and remove (( f1.txt.gz )).
