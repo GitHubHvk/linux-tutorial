@@ -549,3 +549,14 @@ this command shows the name of primary or any supplementary groups for each give
 
 ***
 
+# ln
+
+creates a symbolic link.
+
+- ###### ln -s /var/test/f1.txt f1link
+
+  - this command creates a symbolic link for file (( f1.txt )) in path (( /var/test/f1.txt )) with name (( f1link )) that is located in the current working directory.
+
+- ###### ln -s /var/test dlink
+
+  - this command creates a symbolic link for the path (( /var/test )) with name (( dlink )) that is located in the current working directory.
