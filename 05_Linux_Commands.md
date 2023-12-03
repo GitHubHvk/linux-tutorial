@@ -640,3 +640,14 @@ to show the files name and directories inside these kind of files, use following
 
 **caution:** a file with extension (( .tgz )) is equal to file with extension (( .tar.gz ))
 
+
+
+****
+
+# xz and bzip2
+
+xz and bzip2 are 2 other programs to compress files, and produce files with extension (( .xz )) and (( .bzip2 )) respectively. to decompress their files we could use (( unxz )) and (( bunzip2 )). they can be used exactly like gzip and gunzip commands.
+
+
+
+**caution:** there are some files with extension (( .Z )) that could be decompressed by (( gunzip )).
