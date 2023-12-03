@@ -177,6 +177,20 @@ imagine file (( f2 )) with permission (( rwx------ ))
 
 
 
+***
+
+# umask
+
+this a value that when a file or directory is created, to calculate permission the value 666 for file and 777 for directory is subtracted from it and remaining will set as permission.
+
+- ###### umask
+
+  - this command show the current value of umask which by default is 0022 (first digit is sticky digit, three next digits are octal value of umask).
+
+- ###### umask 0042
+
+  - this command change the value of umask for the current session.
+
 
 
 ***
