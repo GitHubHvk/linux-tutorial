@@ -22,15 +22,10 @@
     
     ```
 
-
-
 - run following commands respectively:
 
-  - ```cmd
-    apt update
-    
-    apt upgrade
-    ```
+  - apt update
+  - apt upgrade
 
 
 
@@ -48,4 +43,27 @@
 - sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 - apt update
 - apt install code
+
+
+
+***
+
+# Add Persian Keyboard
+
+[Source]: https://vitux.com/debian_keyboard_layout/	"Add New Keyboard"
+
+1. press Super key (windows key), type setting.
+2. select ((keyboard)) item from left side pane.
+3. in ((input sources)) section click on ((+)) button.
+4. on the opened pop-up click on three dot button, and then click on ((other)) button.
+5. in the focused text input search for the word ((Persian)), and select the one you want.
+
+
+
+###### Switch to Persian
+
+there are at list 2 ways as follows:
+
+1. click on selection icon at the top right corner of the desktop, and select Persian.
+2. press ((Super)) and ((Space)) keys together
 
