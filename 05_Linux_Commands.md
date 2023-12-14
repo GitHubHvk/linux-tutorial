@@ -231,6 +231,10 @@ to see sudo logs, you can run following command (( case-sensitive )):
 
 
 
+**caution:** to close the file opened with ((less)), type ((q)). 
+
+
+
 ***
 
 # diff
