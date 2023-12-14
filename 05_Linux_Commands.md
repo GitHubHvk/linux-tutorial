@@ -181,7 +181,7 @@ imagine file (( f2 )) with permission (( rwx------ ))
 
 # umask
 
-this a value that when a file or directory is created, to calculate permission the value 666 for file and 777 for directory is subtracted from it and remaining will set as permission.
+this is a constant value (say it is 0022) that is subtracted from the values 666 for file and 777 for directory and the remaining is used as default permission value to create a new file or directory respectively.
 
 - ###### umask
 
