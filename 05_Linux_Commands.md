@@ -393,7 +393,7 @@ so to set an environment variable named (( MTG )) globally accessible for all us
 
 - su -
 - vi /etc/profile
-- add command (( MTG="value 1" )) at the end of the file then save and close it.
+- add command (( export MTG="value 1" )) at the end of the file then save and close it.
 - run command (( source /etc/profile)) to refresh it in current session.
 - then log out from Linux and login again.
 
