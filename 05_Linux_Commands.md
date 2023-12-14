@@ -254,7 +254,7 @@ to see sudo logs, you can run following command (( case-sensitive )):
 
 - ###### file f2
   
-  - with print some information about file (( f2 ))
+  - will print some information about file (( f2 ))
 - ###### find / -name f2 -print
   
   - search for the file named (( f2 )) in directory (( / )) and all it's subdirectory, and print the full path of founded files.
@@ -273,7 +273,7 @@ to see sudo logs, you can run following command (( case-sensitive )):
   - print first 10 lines of the file (( f2 ))
 - ###### head -3 f2
   
-  - print last 3 lines of file (( f2 ))
+  - print first 3 lines of file (( f2 ))
 
 
 
