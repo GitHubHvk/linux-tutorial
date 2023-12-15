@@ -58,3 +58,13 @@ with respect to block devices it could process a chunk of data in the middle of 
 - dd if=/dev/zero of=/var/my_dir/new_file.txt bs=1024 count=1
   - this command write first (count=1, number of blocks) 1024 bytes (bs=1024, also it could be bs=1k or bs=2b as k is equal to 1024 bytes and b is equal to 512 bytes) of stream from input device /dev/zero (a continuous stream of zeros) as ((if)) to a new file named new_file.txt in the path /var/my_dir as ((of)).
   - if input and output block size are equal we can use ((bs)), otherwise we have two options as ((ibs)) for input block size and ((obs)) for output block size. 
+
+
+
+***
+
+# List b and c Devices
+
+- ###### cat /proc/devices
+
+  - this command lists block and character devices.
