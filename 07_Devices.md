@@ -68,3 +68,18 @@ with respect to block devices it could process a chunk of data in the middle of 
 - ###### cat /proc/devices
 
   - this command lists block and character devices.
+
+
+
+***
+
+# lsscsi
+
+this program is used to list devices that communicate with kernel based on SCSI (small computer system interface) protocol.
+
+**Caution:** if command is not found, install the program by running command ((apt install lsscsi)).
+
+
+
+***
+
