@@ -96,3 +96,13 @@ port known in windows ad COM0, COM1 are /dev/ttyS0, /dev/ttyS1 and so on, in Lin
 following command creates a block device named ((sda3)) in path ((/dev)) with major number 8 and minor number 1:
 
 - mknod /dev/sda3 b 8 3
+
+
+
+***
+
+# Disks link file
+
+to see the link files of the disks in Linux, run the following command:
+
+- ls -l /dev/disk/by-id
