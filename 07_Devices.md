@@ -83,3 +83,6 @@ this program is used to list devices that communicate with kernel based on SCSI 
 
 ***
 
+# Serial Ports
+
+port known in windows ad COM0, COM1 are /dev/ttyS0, /dev/ttyS1 and so on, in Linux.
