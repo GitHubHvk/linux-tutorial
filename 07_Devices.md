@@ -106,3 +106,22 @@ following command creates a block device named ((sda3)) in path ((/dev)) with ma
 to see the link files of the disks in Linux, run the following command:
 
 - ls -l /dev/disk/by-id
+
+***
+
+# Monitor udev
+
+to monitor the events that udev program receives from kernel and sends out after rule processing, and kernel events run following commands:
+
+- udevadm monitor  
+
+to only see kernel events use option ((--kernel)), and to see only udev events use ((--udev)) option in the command as follow:
+
+- udevadm monitor --kernel
+- udevadm monitor --udev
+
+
+
+to filter the events for example pertaining to changes in ((scsi)) subsystem, use the option ((-subsystem-match)) as follow:
+
+- udevadm monitor --subsystem-match=scsi
