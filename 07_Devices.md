@@ -86,3 +86,13 @@ this program is used to list devices that communicate with kernel based on SCSI 
 # Serial Ports
 
 port known in windows ad COM0, COM1 are /dev/ttyS0, /dev/ttyS1 and so on, in Linux.
+
+
+
+***
+
+# Create Device File
+
+following command creates a block device named ((sda3)) in path ((/dev)) with major number 8 and minor number 1:
+
+- mknod /dev/sda3 b 8 3
