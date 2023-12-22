@@ -57,3 +57,10 @@ in order to reload new changes of partitions in disk ((/dev/sda)) made by ((fdis
 
 - blockdev --rereadpt /dev/sda
 
+
+
+***
+
+# lsblk
+
+this command shows the device block location structure.
