@@ -47,11 +47,13 @@ following commands shows the system partition table:
 
 
 
-
-
 ***
 
+# Partition Table Reload
 
+we can make changes in partition table with each of programs ((fdisk)) and ((parted)); but changes in made by ((fdisk)) is not committed immediately, and it is needed to finalize it by exiting the program. 
 
+in order to reload new changes of partitions in disk ((/dev/sda)) made by ((fdisk)) program, you can run the following command:
 
+- blockdev --rereadpt /dev/sda
 
