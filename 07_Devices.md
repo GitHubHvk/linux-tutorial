@@ -125,3 +125,23 @@ to only see kernel events use option ((--kernel)), and to see only udev events u
 to filter the events for example pertaining to changes in ((scsi)) subsystem, use the option ((-subsystem-match)) as follow:
 
 - udevadm monitor --subsystem-match=scsi
+
+
+
+***
+
+# USB bus
+
+to list USB buses and devices connected to the in Linux, use the following command:
+
+- lsusb
+- lsusb -v
+  - this command show the information in verbose mode and also shows more detail.
+- lsusb -s 1
+  - this command display devices with bus number 1.
+- lsusb -s 2:1
+  - this command display devices with bus number 2 and device number 1.
+- lsusb -t
+  - shows info in tree structure.
+- lsusb -D /path/to/device/file
+  - show information about the specified device.
