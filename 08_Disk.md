@@ -64,3 +64,32 @@ in order to reload new changes of partitions in disk ((/dev/sda)) made by ((fdis
 # lsblk
 
 this command shows the device block location structure.
+
+
+
+***
+
+# Partitioning Disk
+
+to partition a disk we can use program ((fdisk)). say we have attached a new 1 GB of disk to the system, and want to partition it to 2 MBR primary parts respectively 200MB and 800MB. we should do the following steps:
+
+- lsblk
+  - this command lists the structure of device locations. we run it to find what is our new attached disk. say for example it is ((/dev/sdb)) .
+- fdisk /dev/sdb
+  - this command starts the steps of creating partitions by prompting you to enter a letter that specifies your action.
+  - for learning the available actions, press m to list them; some of the important items are as follows:
+    - p: shows the status of disk current partitions.
+    - d: delete the selected partition.
+    - n: create a new partition. after entering ((n)) you will prompt to select new partition characteristics.
+    - w: write the changes to the partition table.
+- enter p, if there is any existing partition, delete them with ((d)).
+- enter n
+  - it will ask following questions:
+    - select partition type: ((p)) for primary and ((e)) for extended. enter ((p)).
+    - select the number of partition. press enter to set the incremented number started from 1.
+    - select the starting sector. press enter.
+    - select the end of partition. enter ((+200MB)).
+
+- enter n to create second partition, this time for all questions just enter and don't type anything.
+- enter ((p)) to see the setting of new created partitions.
+- press ((w)) to write changes to the partition table.
