@@ -93,3 +93,21 @@ to partition a disk we can use program ((fdisk)). say we have attached a new 1 G
 - enter n to create second partition, this time for all questions just enter and don't type anything.
 - enter ((p)) to see the setting of new created partitions.
 - press ((w)) to write changes to the partition table.
+
+
+
+***
+
+# Partition Filesystem
+
+to see the filesystem of system partitions, run the following command:
+
+- lsblk -f
+
+to change the filesystem of a partition, say ((/dev/sda2)) run following command:
+
+- mkfs -t ext4 /dev/sda2
+
+to list all possible filesystem, run the following command:
+
+- ls -l /sbin/mkfs.* 
