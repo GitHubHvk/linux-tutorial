@@ -76,12 +76,14 @@ to partition a disk we can use program ((fdisk)). say we have attached a new 1 G
 - lsblk
   - this command lists the structure of device locations. we run it to find what is our new attached disk. say for example it is ((/dev/sdb)) .
 - fdisk /dev/sdb
+  - first parameter of the command that is passed as ((/dev/sdb)) is logical name of the disk and could be retrieved from running command ((lshw)). 
   - this command starts the steps of creating partitions by prompting you to enter a letter that specifies your action.
   - for learning the available actions, press m to list them; some of the important items are as follows:
     - p: shows the status of disk current partitions.
     - d: delete the selected partition.
     - n: create a new partition. after entering ((n)) you will prompt to select new partition characteristics.
     - w: write the changes to the partition table.
+
 - enter p, if there is any existing partition, delete them with ((d)).
 - enter n
   - it will ask following questions:
@@ -93,6 +95,10 @@ to partition a disk we can use program ((fdisk)). say we have attached a new 1 G
 - enter n to create second partition, this time for all questions just enter and don't type anything.
 - enter ((p)) to see the setting of new created partitions.
 - press ((w)) to write changes to the partition table.
+
+
+
+**Caution:** to be able to run command ((lshw)) we need install the program by running command ((apt install lshw)).
 
 
 
@@ -111,3 +117,24 @@ to change the filesystem of a partition, say ((/dev/sda2)) run following command
 to list all possible filesystem, run the following command:
 
 - ls -l /sbin/mkfs.* 
+
+
+
+***
+
+# Mounting a Filesystem
+
+is attaching a filesystem to a running system.
+
+to show current filesystem mounting status, run the following command:
+
+- mount
+
+to assign a new partition for example ((/dev/sdb2)) to and existing ((/home/mntsdb2)) directory which is known as ((mountpoint)) run the following command:
+
+- mount -t ext4 /dev/sdb2 /home/mntsdb2
+
+to detach a mount point from a partition or device, you can run ((umount)) program with either of device name or mountpoint.
+
+- umount /dev/sdb2
+- umount /home/mntsdb2
