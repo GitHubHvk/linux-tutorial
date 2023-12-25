@@ -146,3 +146,8 @@ to mount device by their filesystem UUID do the following steps:
 2. mount UUID=[found UUID of the desired device] [mountpoint]
    - example: mount UUID=83a76677-50b1-4933-995f-88e86243e806 /home/mntsdb2
 
+
+
+**Caution:** Linux does not write changes immediately to the filesystem, instead stores them in the RAM and perform them in a good time. so if mounting and unmounting does not happen at the time, run command ((sync)) to synchronize all the disks in system.
+
+**Caution:** filesystem mount table in located in directory ((/etc/fstab)).
