@@ -138,3 +138,11 @@ to detach a mount point from a partition or device, you can run ((umount)) progr
 
 - umount /dev/sdb2
 - umount /home/mntsdb2
+
+to mount device by their filesystem UUID do the following steps:
+
+1. blkid
+   - this command lists the UUID of the devices in system.
+2. mount UUID=[found UUID of the desired device] [mountpoint]
+   - example: mount UUID=83a76677-50b1-4933-995f-88e86243e806 /home/mntsdb2
+
