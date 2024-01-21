@@ -667,3 +667,11 @@ xz and bzip2 are 2 other programs to compress files, and produce files with exte
 
 
 **caution:** there are some files with extension (( .Z )) that could be decompressed by (( gunzip )).
+
+
+
+***
+
+# free -m
+
+this command shows about resources in OS.
