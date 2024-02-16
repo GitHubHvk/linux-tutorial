@@ -9,7 +9,7 @@ totally there are two categories for proxies:
 
 
 
-![](D:\03_Tutorial\23_Linux\0_Documents\Proxy_Diagram.png)
+![](Proxy_Diagram.png)
 
 
 
