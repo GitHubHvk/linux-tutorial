@@ -423,18 +423,22 @@ following steps create a file named ((gv.sh)) in ((profile.d)) directory and set
 - ###### ctrl-b
 
   - move cursor to the left
+  - ((b)) is abbreviated ((backward))
 
 - ###### ctrl-f
 
   - move cursor to the right
+  - ((f)) is abbreviated ((forward))
 
 - ###### ctrl-p
 
   - view the previous command
+  - ((p)) is abbreviated ((previous))
 
 - ###### ctrl-n
 
   - view the next command
+  - ((n)) is abbreviated ((next))
 
 - ###### ctrl-a
 
