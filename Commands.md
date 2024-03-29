@@ -399,6 +399,23 @@ so to set an environment variable named (( MTG )) globally accessible for all us
 
 
 
+# profile.d directory
+
+any file in this directory will be loaded in user login. so to have an environment variable we can also create file in this directory and declare our variable here.
+
+following steps create a file named ((gv.sh)) in ((profile.d)) directory and set a variable named ((G1)) in that file. from now on, the variable ((G1)) will be available globally for the user after login.
+
+1. cd /etc/profile.d
+2. touch gv.sh
+3. vim gv.sh
+4. press ((i))
+5. write ((G1="my global 1 variable"))
+6. press ((Esc))
+7. press (( Shift + : ))
+8. writ command ((wq))
+
+
+
 ***
 
 # shortcut keys to navigate in shell editor
