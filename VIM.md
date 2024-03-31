@@ -118,10 +118,30 @@ to redo press (( ctrl + r )) in command mode. this will redo the last undo in it
 
 to paste a text from clipboard to vim,  switch to insert mode by pressing (( i )), and then press and hold (( shift )) and right click on somewhere in opened file in vim, then select (( paste )) item from context menu. 
 
+***
+
+# Select All Content
+
+to select all content of a text file, first press keyword ((gg)) to navigate to the first line of the document, then press ((V)) to go to visual mode, then press ((G)) to select all. so pressing ((ggVG)) will do the job for you.
+
 
 
 ***
 
+# Copy And Paste All Content
+
+to copy all content first go to normal mode then press ((99999yy)) command. now you copied all content of the document.
+
+to paste again go to normal mode and press ((p)). you can do it in every other document opened with vim.  
 
 
-  
+
+***
+
+# To Delete All Content
+
+go to normal mode. then press ((gg)) to navigate to the first line, then press ((dG)).
+
+or
+
+go to normal mode. then go to the end of file and press ((dgg)).
