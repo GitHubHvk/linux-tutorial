@@ -1,11 +1,19 @@
 # Proxy Types
 
+Proxy in a nutshell is a program that acts on behalf of another machine (a client, web server, or other backend server). whether this machine is client side or server side will specify the type of proxy.
+
 totally there are two categories for proxies:
 
 - Reverse Proxy
   - this proxy is set in server side.
+  - a reverse proxy serves on behalf of servers, managing requests from external clients, providing load balancing, and increasing security by concealing server identities.
+  - safeguards servers from external threats.
+  - a reverse proxy hides the identities of servers.
 - Forward Proxy
   - this one is set in client side.
+  - controlling access to internet resources, enhancing security, and enforcing policies.
+  - protects internal network clients.
+  - a forward proxy hides clients' identities.
 
 
 
