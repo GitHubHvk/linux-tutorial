@@ -57,7 +57,10 @@ https://medium.com/@jasonrigden/how-to-host-a-static-website-with-nginx-8b2dd0c5
 after installing Nginx and starting it, we can control it through some signals as follow:
 
 - nginx -s quit
-  - to stop nginx processes with waiting for the worker processes to finish serving current requests
+  - to stop nginx processes with waiting for the worker processes to finish serving current requests.
+- nginx -s stop
+  - fast shutdown.
+
 - nginx -s reload
   - Changes made in the configuration file will not be applied until the command to reload configuration is sent to nginx or it is restarted.
   - it checks the syntax validity of the new configuration file and tries to apply the configuration provided in it. If this is a success, the master process starts new worker processes and sends messages to old worker processes, requesting them to shut down. Old worker processes, receiving a command to shut down, stop accepting new connections and continue to service current requests until all such requests are serviced. After that, the old worker processes exit.
@@ -65,6 +68,92 @@ after installing Nginx and starting it, we can control it through some signals a
 
 
 
+***
+
+# Config File Structure
+
+nginx has modules that are controlled by directive inside config file.
+
+directives are names that are separated from their values by space. values could be simple or block.
+
+simple value is one line that ends with semi-colon. a block is consist of other directives wrapped in braces. 
+
+each directive that have other directives inside braces, is called a context. for example ((location)) context, or ((http)) context, or ((server)) context.
+
+the directive that has braces but itself is not inside any block, is said to be declared in the ((main)) context. like ((event)), and ((http)). 
 
 
-https://nginx.org/en/docs/beginners_guide.html
+
+***
+
+# Sample Scenarios
+
+to understand better how nginx config works, we would have some sample as follows:
+
+
+
+## run simple static file
+
+imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )). to do so we do following steps:
+
+1. create a directory named (( /static_site )) in the root directory, and paste (( index.html )) file inside it.
+
+2. create a file named (( my_static_site.conf )) inside directory (( /etc/nginx/sites/available/ )), and fill this with following scripts.
+
+   1. ```nginx
+      server{
+       listen 80;
+       server_name _;
+       root /static_site;
+       index index.html;
+      }
+      ```
+
+3. run following command to create a linked file to (( my_static_site.conf )) inside directory (( /etc/nginx/sites-enabled )):
+
+   1. ```powershell
+      ls -s /etc/nginx/sites-available/my_static_site.conf /etc/nginx/sites-enabled
+      ```
+
+4. run the following command to reload config file in nginx without restarting it:
+
+   1. ```nginx
+      nginx -s reload
+      ```
+
+
+
+## run simple static file with image repository
+
+imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )), and have some images that want to serve in web when browsing URI (( http://localhost:80/images/[image name].[image extension] )) . to do so we do following steps:
+
+1. create a directory named (( /static_site_with_image_repository )) in the root directory, and paste (( index.html )) file inside it.
+
+2. create a directory named (( /images )) inside directory (( /static_site_with_image_repository )) and paste your images inside it.
+
+3. create a file named (( static_site_with_image_repository.conf )) inside directory (( /etc/nginx/sites/available/ )), and fill this with following scripts.
+
+   1. ```nginx
+      server{
+          listen 80;
+          server_name _;
+          root /static_site_with_image_repository;
+          index index.html;
+          location /images/ {
+          }
+      }
+      ```
+
+4. run following command to create a linked file to (( static_site_with_image_repository.conf )) inside directory (( /etc/nginx/sites-enabled )):
+
+   1. ```powershell
+      ls -s /etc/nginx/sites-available/static_site_with_image_repository.conf /etc/nginx/sites-enabled
+      ```
+
+5. run the following command to reload config file in nginx without restarting it:
+
+   1. ```nginx
+      nginx -s reload
+      ```
+
+      
