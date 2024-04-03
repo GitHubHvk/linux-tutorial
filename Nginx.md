@@ -92,7 +92,7 @@ to understand better how nginx config works, we would have some sample as follow
 
 
 
-## run simple static file
+## run static site
 
 imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )). to do so we do following steps:
 
@@ -123,7 +123,7 @@ imagine we have an ((index.html)) file that want to serve it as a web page when 
 
 
 
-## run simple static file with image repository
+## run static site with image repository
 
 imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )), and have some images that want to serve in web when browsing URI (( http://localhost:80/images/[image name].[image extension] )) . to do so we do following steps:
 
@@ -156,4 +156,59 @@ imagine we have an ((index.html)) file that want to serve it as a web page when 
       nginx -s reload
       ```
 
-      
+
+
+
+## run static site with proxy image repository
+
+imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )), and have some images that want to serve in web when browsing URI (( http://localhost:80/images/[image name].[image extension] )), but to serve images we have another service hosting with port 8080. to do so we do following steps:
+
+1. create a directory named (( /static_site_with_proxy_image_repository )) in the root directory, and paste (( index.html )) file inside it.
+
+2. create a directory named (( /images/proxy_service )) inside directory (( /static_site_with_proxy_image_repository )) and paste your images inside it.
+
+3. create a file named (( static_site_with_proxy_image_repository.conf )) inside directory (( /etc/nginx/sites/available/ )), and fill this with following scripts.
+
+   1. ```nginx
+      server{
+          listen 80;
+          server_name _;
+          root /static_site_with_proxy_image_repository;
+          index index.html;
+          location / {
+          }
+          location /images/ {
+              proxy_pass http://localhost:8080;
+          }
+      }
+      ```
+
+4. create a file named (( proxy_image_repository.conf )) inside directory (( /etc/nginx/sites/available/ )), and fill this with following scripts.
+
+   1. ```
+      server{
+          listen 8080;
+          server_name _;
+          root  /images/proxy_service;
+          
+          location /images/ {
+          }
+      }
+      ```
+
+5. run following command to create a linked file to (( proxy_image_repository.conf )) and (( static_site_with_proxy_image_repository.conf )) inside directory (( /etc/nginx/sites-enabled )):
+
+   1. ```powershell
+      ls -s /etc/nginx/sites-available/proxy_image_repository.conf /etc/nginx/sites-enabled
+      ```
+
+   2. ```
+      ls -s /etc/nginx/sites-available/static_site_with_proxy_image_repository.conf /etc/nginx/sites-enabled
+      ```
+
+6. run the following command to reload config file in nginx without restarting it:
+
+   1. ```nginx
+      nginx -s reload
+      ```
+
