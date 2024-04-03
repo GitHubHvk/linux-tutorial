@@ -209,6 +209,45 @@ as another example, in the case of (( return )) directive, the first one is retu
 
 ***
 
+# Server Context
+
+Inside nginx, you can specify multiple virtual servers to process the requests by using server context.
+
+```
+server {
+  listen      *:80 default_server;
+  server_name hamed.co;
+
+  return 200 "Hello from netguru.co";
+}
+
+server {
+  listen      *:80;
+  server_name foo.co;
+
+  return 200 "Hello from foo.co";
+}
+
+server {
+  listen      *:81;
+  server_name bar.co;
+
+  return 200 "Hello from bar.co";
+}
+```
+
+
+
+in above config file:
+
+- request to (( http://hamed.co:80 )) and (( http://bar.co:80 )), and (( http://www.foo.co:80 )) will result in processing the first virtual server.
+- request to (( http://foo.co:80 )) will result in processing the second virtual server.
+- request to (( http://bar.co:81 )), (( http://foo.co:81 )) will result in processing the third virtual server.
+
+
+
+***
+
 # Sample Scenarios
 
 to understand better how nginx config works, we would have some sample as follows:
