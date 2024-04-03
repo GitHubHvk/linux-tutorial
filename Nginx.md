@@ -42,19 +42,24 @@ By default, the configuration file is named  ((nginx.conf)) and placed in the fo
 
 
 
-***
+following command checks the validation of config file:
 
-# set up static site
-
-https://medium.com/@jasonrigden/how-to-host-a-static-website-with-nginx-8b2dd0c5b301 
+- nginx -t
 
 
 
 ***
 
-# Signals
+# Important Commands
 
-after installing Nginx and starting it, we can control it through some signals as follow:
+to start nginx service, each one of the following commands will do the job:
+
+- nginx
+- systemctl start nginx
+
+
+
+While your nginx instance is running, you can manage it by sending signals.
 
 - nginx -s quit
   - to stop nginx processes with waiting for the worker processes to finish serving current requests.
@@ -72,7 +77,13 @@ after installing Nginx and starting it, we can control it through some signals a
 
 # Config File Structure
 
-nginx has modules that are controlled by directive inside config file.
+nginx has modules that are controlled by directive inside config file. By default, the nginx configuration file can be found in:
+
+- /etc/nginx/nginx.conf
+- /usr/local/etc/nginx/nginx.conf
+- /usr/local/nginx/conf/nginx.conf
+
+
 
 directives are names that are separated from their values by space. values could be simple or block.
 
@@ -84,6 +95,118 @@ the directive that has braces but itself is not inside any block, is said to be 
 
 
 
+### Directive
+
+the option that consists of name and parameters; it should end with a semicolon; like bellow:
+
+- gzip on;
+
+
+
+### Context
+
+the section where you can declare directives (similar to scope in programming languages):
+
+- ```nginx
+  worker_processes 2; # directive in global context
+  
+  http {              # http context
+      gzip on;        # directive in http context
+  
+    server {          # server context
+      listen 80;      # directive in server context
+    }
+  }
+  ```
+
+
+
+## Directive Types
+
+There are 3 types of directives, each with its own inheritance model.
+
+
+
+### Normal
+
+Has one value per context. Also, it can be defined only once in the context. Subcontexts can override the parent directive, but this override will be valid only in a given subcontext.
+
+- ```nginx
+  gzip on;
+  gzip off; # illegal to have 2 normal directives in same context
+  
+  server {
+    location /downloads {
+      gzip off;
+      # gzip is off here
+    }
+  
+    location /assets {
+      # gzip is on here
+    }
+  }
+  ```
+
+
+
+### Array
+
+Adding multiple directives in the same context will add to the values instead of overwriting them altogether. Defining a directive in a subcontext will override ALL parent values in the given subcontext.
+
+- ```
+  error_log /var/log/nginx/error.log;
+  error_log /var/log/nginx/error_notive.log notice;
+  error_log /var/log/nginx/error_debug.log debug;
+  
+  server {
+    location /downloads {
+      # this will override all the parent directives
+      error_log /var/log/nginx/error_downloads.log;
+    }
+  }
+  ```
+
+
+
+### Action
+
+Their inheritance behavior will depend on the module.
+
+For example, in the case of the `rewrite` directive, every matching directive will be executed:
+
+- ```
+  server {
+    rewrite ^ /foobar;
+  
+    location /foobar {
+      rewrite ^ /foo;
+      rewrite ^ /bar;
+    }
+  }
+  ```
+
+- in the above config file, If the user tries to fetch `/sample`:
+
+  - a server rewrite is executed, rewriting from `/sample`, to `/foobar`
+  - the location `/foobar` is matched
+  - the first location rewrite is executed, rewriting from `/foobar`, to `/foo`
+  - the second location rewrite is executed, rewriting from `/foo`, to `/bar`
+
+as another example, in the case of (( return )) directive, the first one is returned if more than one is used in the same context.
+
+- ```
+  server {
+    location / {
+      return 200;
+      return 404;
+    }
+  }
+  ```
+
+- in the above config file the `200` status is returned immediately.
+
+
+
 ***
 
 # Sample Scenarios
@@ -92,7 +215,7 @@ to understand better how nginx config works, we would have some sample as follow
 
 
 
-## run static site
+### run static site
 
 imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )). to do so we do following steps:
 
@@ -123,7 +246,7 @@ imagine we have an ((index.html)) file that want to serve it as a web page when 
 
 
 
-## run static site with image repository
+### run static site with image repository
 
 imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )), and have some images that want to serve in web when browsing URI (( http://localhost:80/images/[image name].[image extension] )) . to do so we do following steps:
 
@@ -159,7 +282,7 @@ imagine we have an ((index.html)) file that want to serve it as a web page when 
 
 
 
-## run static site with proxy image repository
+### run static site with proxy image repository
 
 imagine we have an ((index.html)) file that want to serve it as a web page when browsing URI (( http://localhost:80 )), and have some images that want to serve in web when browsing URI (( http://localhost:80/images/[image name].[image extension] )), but to serve images we have another service hosting with port 8080. to do so we do following steps:
 
