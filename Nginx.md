@@ -296,8 +296,6 @@ this directive is a member of server context.
 
 this directive is the value of the ((Host)) header in request. ((Host)) header in request is the the value of the domain requesting.
 
-
-
 ### selection order
 
 - Nginx will first try to find a server block with a `server_name` that matches the value in the `Host` header of the request *exactly*. If this is found, the associated block will be used to serve the request. If multiple exact matches are found, the **first** one is used.
@@ -305,6 +303,72 @@ this directive is the value of the ((Host)) header in request. ((Host)) header i
 - If no match is found using a leading wildcard, Nginx then looks for a server block with a `server_name` that matches using a trailing wildcard (indicated by a server name ending with a `*` in the config). If one is found, that block is used to serve the request. If multiple matches are found, the **longest** match will be used to serve the request.
 - If no match is found using a trailing wildcard, Nginx then evaluates server blocks that define the `server_name` using regular expressions (indicated by a `~` before the name). The **first** `server_name` with a regular expression that matches the “Host” header will be used to serve the request.
 - If no regular expression match is found, Nginx then selects the default server block for that IP address and port.
+
+
+
+***
+
+# location context
+
+it is part of server context. each server block could have multiple location contexts. also it could be nested in another location context.
+
+this context is to handle client request for resources, like images, documents, videos, and so on.
+
+
+
+this context has 2 parameters as follow:
+
+- modifier: this is optional and is used to affect the way that the Nginx attempts to match the location block.
+  - (none): If no modifiers are present, the location is interpreted as a *prefix* match. the location given will be matched against the beginning of the request URI to determine a match.
+  - (=): this block will be considered a match if the request URI exactly matches the location given.
+  - (~): this location will be interpreted as a case-sensitive regular expression match.
+  - (~*): the location block will be interpreted as a case-insensitive regular expression match.
+  - (^~): if this block is selected as the best non-regular expression match, regular expression matching will not take place.
+- location_match: the URI to match.
+
+```nginx
+location optional_modifier location_match {
+
+    . . .
+
+}
+```
+
+
+
+### examples:
+
+- location /site {} will match all following URIs:
+  - /site
+  - site/page1
+  - /site/page1/index.html
+  - /site/index.html
+- location = /page1 {}:
+  - will match (( /page1 ))
+  - will not match (( /page1/index.html ))
+  - will not match (( /page1/site ))
+- location ~ \\.(jpe?g|png|ico|gif)$ {}
+  - will match (( /page1/a.png ))
+  - will not match (( /page1/a.PNG ))
+- location ~* \\.(jpe?g|png|ico|gif)$ {}
+  - will match (( /page1/a.png ))
+  - will match (( /page1/a.PNG ))
+
+
+
+### selection order
+
+Nginx evaluates the possible location contexts by comparing the request URI to each of the locations. it does following steps:
+
+- it checks each URI against prefixed-based location (none regular).
+- first location with (( = )) modifier is checked.
+- hen moves on to evaluating non-exact prefixes. It discovers the longest matching prefix location for the given request URI, which it then evaluates as follows:
+  - If the longest matching prefix location has the `^~` modifier, then Nginx will immediately end its search and select this location to serve the request.
+  - If the longest matching prefix location *does not* use the `^~` modifier, the match is stored by Nginx for the moment so that the focus of the search can be shifted.
+- moves on to evaluating the regular expression locations (both case sensitive and insensitive). If there are any regular expression locations *within* the longest matching prefix location, Nginx will move those to the top of its list of regex locations to check. Nginx then tries to match against the regular expression locations sequentially. The **first** regular expression location that matches the request URI is immediately selected to serve the request.
+- If no regular expression locations are found that match the request URI, the previously stored prefix location is selected to serve the request.
+
+
 
 
 
