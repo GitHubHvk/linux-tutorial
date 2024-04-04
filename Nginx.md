@@ -2,6 +2,8 @@
 
 is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.
 
+It can successfully handle high loads with many concurrent client connections, and can function as a web server, a mail server, or a reverse proxy server.
+
 In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
 
 Because it can handle a high volume of connections, NGINX is commonly used as a reverse proxy and [load balancer](https://www.nginx.com/blog/five-reasons-use-software-load-balancer/) to manage incoming traffic and distribute it to slower upstream servers – anything from legacy database servers to microservices.
@@ -155,7 +157,7 @@ Adding multiple directives in the same context will add to the values instead of
 
 - ```
   error_log /var/log/nginx/error.log;
-  error_log /var/log/nginx/error_notive.log notice;
+  error_log /var/log/nginx/error_notice.log notice;
   error_log /var/log/nginx/error_debug.log debug;
   
   server {
@@ -211,9 +213,11 @@ as another example, in the case of (( return )) directive, the first one is retu
 
 # Server Context
 
+this context is member of (( http )) context.
+
 Inside nginx, you can specify multiple virtual servers to process the requests by using server context.
 
-```
+```nginx
 server {
   listen      *:80 default_server;
   server_name hamed.co;
@@ -243,6 +247,64 @@ in above config file:
 - request to (( http://hamed.co:80 )) and (( http://bar.co:80 )), and (( http://www.foo.co:80 )) will result in processing the first virtual server.
 - request to (( http://foo.co:80 )) will result in processing the second virtual server.
 - request to (( http://bar.co:81 )), (( http://foo.co:81 )) will result in processing the third virtual server.
+
+
+
+### server block selection
+
+nginx first try to match a block by listen directive, and if multiple candidates  are selected then try to match with server_name directive. if again multiple blocks remain in selection list, the one with (( default_server )) tag is selected.
+
+
+
+***
+
+# listen directive
+
+this directive is a member of server context.
+
+this is combination of IP and port, and each one which is not specified, the default value will be set instead. for example if no listen is set at all, the values is pretended to be (( 0.0.0.0:80 )) by nginx.
+
+- A block with no `listen` directive uses the value `0.0.0.0:80`.
+- A block set to an IP address `111.111.111.111` with no port becomes `111.111.111.111:80`
+- A block set to port `8888` with no IP address becomes `0.0.0.0:8888`
+
+### value
+
+- An IP address/port combo.
+- A lone IP address which will then listen on the default port 80.
+- A lone port which will listen to every interface on that port.
+- The path to a Unix socket.
+
+
+
+### selection order
+
+- nginx first looks to match exact value of port in request matching in server blocks.
+
+- then attempts to collect a list of the server blocks that match the request, most specifically based on the IP address and port
+  - This means that any block that is functionally using `0.0.0.0` as its IP address (to match any interface), will not be selected if there are matching blocks that list a specific IP address.
+
+in above selection order if one match is found, the request is sent to that block to be processed, otherwise if multiple matches is found, then the selection process process will use ((server_name)) directive.
+
+
+
+***
+
+# server_name directive
+
+this directive is a member of server context.
+
+this directive is the value of the ((Host)) header in request. ((Host)) header in request is the the value of the domain requesting.
+
+
+
+### selection order
+
+- Nginx will first try to find a server block with a `server_name` that matches the value in the `Host` header of the request *exactly*. If this is found, the associated block will be used to serve the request. If multiple exact matches are found, the **first** one is used.
+- If no exact match is found, Nginx will then try to find a server block with a `server_name` that matches using a leading wildcard (indicated by a `*` at the beginning of the name in the config). If one is found, that block will be used to serve the request. If multiple matches are found, the **longest** match will be used to serve the request.
+- If no match is found using a leading wildcard, Nginx then looks for a server block with a `server_name` that matches using a trailing wildcard (indicated by a server name ending with a `*` in the config). If one is found, that block is used to serve the request. If multiple matches are found, the **longest** match will be used to serve the request.
+- If no match is found using a trailing wildcard, Nginx then evaluates server blocks that define the `server_name` using regular expressions (indicated by a `~` before the name). The **first** `server_name` with a regular expression that matches the “Host” header will be used to serve the request.
+- If no regular expression match is found, Nginx then selects the default server block for that IP address and port.
 
 
 
