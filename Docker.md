@@ -1,3 +1,37 @@
+# What Is It?
+
+Is an open platform for developing, shipping, and running applications without any dependency to the host environment. it separates your application from host infrastructure, so cause software delivery to be mush more quicker, easier, safer, and stable. 
+
+
+
+***
+
+# Docker Structure
+
+docker uses client-server architecture. there is an app that is running in client which communicates with a running app in the server with REST API. both of these apps could be on the same machines or be separated in local and host.
+
+
+
+### Docker Daemon (dockerd)
+
+this is the app which is running in host machine and is responsible of managing and creating images, containers, networks, and volumes. this app listens to the client API requests and execute the appropriate command in docker engine. 
+
+
+
+### Docker Client (docker)
+
+is an app that provides `CLI` for users to communicate with Daemon. this app sends the user entered commands to the `dockerd` to execute them in docker engine. this app uses Docker API to communicate with `dockerd`.
+
+
+
+### Docker Desktop
+
+this is an application installable on Mas, Linux, ore Windows, that consists of `dockecr client`, `docker daemon`, `docker compose`, `docker content trust`, `kubernetes`, and `credential helper`.
+
+
+
+***
+
 # Install Docker
 
 as some distro maintainers include some unofficial packages in their Linux distribution, it is recommended to uninstall those packages before installing the docker. so run the following command to uninstall them:
@@ -48,3 +82,10 @@ after installing docker, to test it is installed correctly, run the following co
 
 - docker run hello-world
   - When the container runs, it prints a confirmation message and exits.
+
+
+
+***
+
+# Image
+
