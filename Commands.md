@@ -696,3 +696,11 @@ xz and bzip2 are 2 other programs to compress files, and produce files with exte
 # free -m
 
 this command shows about resources in OS.
+
+
+
+***
+
+# lsb_release -a
+
+this command show essential information about current installed OS.
