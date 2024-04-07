@@ -87,5 +87,41 @@ after installing docker, to test it is installed correctly, run the following co
 
 ***
 
-# Image
+# Install Docker-Desktop
+
+if you are doing the installation in Virtual Machine gust OS, you should enable Virtualization from following path in `Virtual Box` program:
+
+- settings >> System Menu >> Processor Tab >> enable Check-box `Enable Nested VT-x/AMD-V`
+
+
+
+download docker-desktop package from following URL:
+
+- ```
+  https://desktop.docker.com/linux/main/amd64/139021/docker-desktop-4.28.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64&_gl=1*zrj649*_ga*MTA1MTE5NzY4My4xNzEyMjk2MTcy*_ga_XJWPQMJYHQ*MTcxMjQ4MjM3OC42LjEuMTcxMjQ4NjY1Ny4zMi4wLjA.
+  ```
+
+
+
+in terminal environment navigate to the downloaded package folder and execute following commands:
+
+- apt install gnome-terminal
+
+- apt-get update
+
+- apt-get install ./docker-desktop-<version>-<arch>.deb
+
+- after installation finished, following error message is printed, you can ignore it:
+
+  -  
+
+    ```
+    Download is performed unsandboxed as root, as file '/home/user/Downloads/docker-desktop.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+    ```
+
+
+
+now to launch `docker desktop` search it in `Appications` menu or run the following command:
+
+- systemctl --user start docker-desktop
 
