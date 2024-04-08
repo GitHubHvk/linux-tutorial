@@ -125,3 +125,22 @@ now to launch `docker desktop` search it in `Appications` menu or run the follow
 
 - systemctl --user start docker-desktop
 
+
+
+# Docker Context
+
+each user has its own context that when an image is build under that user account, the built image is stored in that context. to see the docker context and some other info, execute the following command:
+
+- docker info
+
+
+
+it is possible to transfer images between different contexts. to do so, execute the following command:
+
+- docker -c [source context] save [image name] | docker -c [destination context] load
+
+
+
+in order to clarify the  above command, imaging we have a non-root user that is running docker in a context named (( desktop-linux )) and created an image named (( wtd )) in it, and want to transfer it to the context name (( default )) of the root user. the command would be as follow:
+
+- docker -c desktop-linux save wtd | sudo docker -c default load 
