@@ -144,3 +144,24 @@ it is possible to transfer images between different contexts. to do so, execute 
 in order to clarify the  above command, imaging we have a non-root user that is running docker in a context named (( desktop-linux )) and created an image named (( wtd )) in it, and want to transfer it to the context name (( default )) of the root user. the command would be as follow:
 
 - docker -c desktop-linux save wtd | sudo docker -c default load 
+
+
+
+# Registry
+
+to explain it as simple as possible, this is a centralized location in which docker images are stored and can be shared to other developers.
+
+a registry could be public or private.
+
+a public registry is a hosted location in internet that could be accessed by every-one in the the internet. some of famous and reliable public image repositories are as follow:
+
+- docker hub: https://hub.docker.com
+- Amazon Elastic Container: https://aws.amazon.com/ecr
+- Azure Container: https://azure.microsoft.com/en-in/products/container-registry
+- Google Artifact: https://cload.google.com/arifact-registry
+
+
+
+### Repository
+
+is a collection of related images within a registry. in a simple term, it is some how like a sub folder in registry.
