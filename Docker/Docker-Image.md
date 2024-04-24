@@ -57,3 +57,84 @@ following instructions are some of the most important ones:
   - sets the default user for all subsequent instructions. 
 - CMD ["<command>", "<arg1>"]
   - sets commands a container using this image will run.
+
+
+
+***
+
+# build
+
+by executing this command, docker will create an image based on instructions written in a docker file.
+
+```powershell
+docker build .
+```
+
+ 
+
+the `.` in the above command specify the path of the `dockerfile` and other referenced files. this path is called build context. 
+
+after running above command, an image will be created without tag. to tag it at the build time you can can use the option `-t` as follow:
+
+```powershell
+docker build -t <your tag> .
+```
+
+  
+
+***
+
+#  Tagging
+
+tagging is the method to set a memorable name for image. but it has a structure that is important. by this instruction we can specify which registry to publish, the repository, namespace, and version. the structure is as follow:
+
+```powershell
+[[HOST]:[PORT_NUMBER]/]PATH[:TAG]
+```
+
+ 
+
+- HOST
+  - Specifies the registry address to publish image. if not specified the default that is ducker registry is used.
+- PORT_NUMBER
+  - registry port number if a hostname is provided.
+- PATH
+  - path of the image in registry. for docker hub registry it is as `[NAMESPACE/]REPOSITORY`. if no `NAMESPACE` is used then the default value that is `library` is used.
+  - the path format for other registries may differ.
+- TAG
+  - a custom identifier that is usually used to specify version. if no tag is used, the default value `latest` is used.
+
+
+
+examples:
+
+- docker/welcome-to-docker
+  - registry is `docker.io`, namespace is `docker`, repository is `welcome-to-docker`, and version is `latest`.
+- ghcr.io/docker-samples/example:pr-311
+  - registry is `ghcr.io`, namespace is `docker-samples`, repository is `example`, and version is `pr-311`.
+
+
+
+to tag an image execute following command:
+
+```powershell
+docker image tag <local image id/locat image tag> <your desigred tag structure>
+
+example:
+ - docker image tag 746e docker.io/library/node-test:1.0
+ - docker image tag myapp docker.io/library/node-test:1.0
+```
+
+
+
+***
+
+# push
+
+to push an image to the registry use the following command:
+
+```powershell
+docker push <your image tag	>
+```
+
+ 
