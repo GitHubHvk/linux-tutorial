@@ -65,6 +65,11 @@ following instructions are some of the most important ones:
   - it is usable when there is data that you want to persist even after container exists or removed ( if the container is run with the command `docker run --rm ...` the volume will be remove after  container exits ).
   -  also it is possible to declare volume when using `docker run` command by option `-v`. in this way you can mount an existing path in host as volume of docker, but you should consider that it is possible to face with portability issues.
 
+- WORKDIR <value>
+  - the directory inside image that subsequent instructions will use.
+  - if there is no such a directory, docker will create it.
+  - you can have multiple `WORKDIR` in a dockerfile.
+
 
 
 
