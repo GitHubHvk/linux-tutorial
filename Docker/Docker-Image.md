@@ -59,6 +59,12 @@ following instructions are some of the most important ones:
   - sets the default user for all subsequent instructions. 
 - CMD ["<command>", "<arg1>"]
   - sets commands a container using this image will run.
+- VOLUME <path in host mathine>
+  - it tells the docker container that the stuff you store in that specific directory should be on the host file system not the container file system.
+  - this will create an empty directory under docker standard structure ( /var/lib/docker/volumes ).
+  - it is usable when there is data that you want to persist even after container exists or removed ( if the container is run with the command `docker run --rm ...` the volume will be remove after  container exits ).
+  -  also it is possible to declare volume when using `docker run` command by option `-v`. in this way you can mount an existing path in host as volume of docker, but you should consider that it is possible to face with portability issues.
+
 
 
 
