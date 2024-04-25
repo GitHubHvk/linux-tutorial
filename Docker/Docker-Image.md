@@ -43,6 +43,7 @@ following instructions are some of the most important ones:
 
 - FROM <base-image>
   - specify the base image that the build process will extend.
+  - every section that starts with `FROM` is called build stage, and can be named by separating it with `AS`. for example `FROM nginx AS n-stage`. 
 - WORKDIR <path>
   - specify the path in the inside the image that files will be copied and commands will be executed.
 - COPY <host-path> <image-path>
