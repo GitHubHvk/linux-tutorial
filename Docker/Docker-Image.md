@@ -48,6 +48,7 @@ following instructions are some of the most important ones:
   - specify the path in the inside the image that files will be copied and commands will be executed.
 - COPY <host-path> <image-path>
   - tells the builder to copy files from host to image.
+  - also there is `ADD` command that is similar to `COPY` but with more capability. `ADD` instruction can download from URL or cand extract compressed files.
 - RUN <command>
   - to run the specified command when building the image. 
 - ENV <name> <value>
