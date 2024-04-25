@@ -72,7 +72,7 @@ docker build .
 
  
 
-the `.` in the above command specify the path of the `dockerfile` and other referenced files. this path is called build context. 
+the `.` in the above command specify the path of the `dockerfile` and other referenced files. this path is called build context. docker sends all files and folders in build directory to docker daemon as build context. if you have some files that are not needed in build process, because they are also included in build context the result will be a larger image; to get rid of those files to be included in our build context we can use `.dockerignore` file. 
 
 after running above command, an image will be created without tag. to tag it at the build time you can can use the option `-t` as follow:
 
