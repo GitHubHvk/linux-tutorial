@@ -54,7 +54,8 @@ following instructions are some of the most important ones:
 - ENV <name> <value>
   - set an environment variable that the is available in running container and also in dockerfile subsequent instructions. 
 - EXPOSE <port number>
-  - indicates a port that image would like to expose.
+  - inform image users about the port that your application is listening on.
+  - it will not publish the port, to do so you need to use option `-p` when running a container.
 - USER <user or uid>
   - sets the default user for all subsequent instructions. 
 - CMD ["<command>", "<arg1>"]
