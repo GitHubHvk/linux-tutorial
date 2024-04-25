@@ -62,6 +62,10 @@ following instructions are some of the most important ones:
   - sets commands a container using this image will run.
   - it can be overridden when starting a container by specifying the command and argument at the end of run command after image name.
   - we can have multiple `CMD` but just the last one is used. 
+- ENTRYPOINT ["<executable>"]
+  - it sets the main executable in your image.
+  - when you set it, after that the `CMD` will pass arguments to the main executable and will not execute anything.
+
 - VOLUME <path in host mathine>
   - it tells the docker container that the stuff you store in that specific directory should be on the host file system not the container file system.
   - this will create an empty directory under docker standard structure ( /var/lib/docker/volumes ).
