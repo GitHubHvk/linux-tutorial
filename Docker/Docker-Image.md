@@ -138,3 +138,15 @@ docker push <your image tag	>
 ```
 
  
+
+***
+
+# dangling images
+
+these are those images that has no tag and there is no purpose for them. they are created during carelessly build processes. for example imagine we have an image tagged `n1/r1:1.0` and we change the `dockerfile` and build another image with exact same tag as `n1/r1:1.0`; the result will be a new image tagged `n1/r1:1.0` and an old image without tag which is called `dangling image`. to get rid of these images we can delete them by running following command:
+
+- docker rmi $(docker images -q --filter "dangling=true")
+  -  `rmi`: a method to remove image.
+  - `$`: pass the query result to `rmi` method.
+  - `-q`: to show just the id of the images.
+  - `--filter`: is an option to pass a filter expression to narrow the result of images list. here we want to list `gangling images`.   
