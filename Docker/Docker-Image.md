@@ -52,7 +52,7 @@ following instructions are some of the most important ones:
 - RUN <command>
   - to run the specified command when building the image. 
 - ENV <name> <value>
-  - set an environment variable that the running container will use. 
+  - set an environment variable that the is available in running container and also in dockerfile subsequent instructions. 
 - EXPOSE <port number>
   - indicates a port that image would like to expose.
 - USER <user or uid>
