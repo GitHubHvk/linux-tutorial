@@ -77,6 +77,9 @@ following instructions are some of the most important ones:
   - if there is no such a directory, docker will create it.
   - you can have multiple `WORKDIR` in a dockerfile.
 
+- ONBUILD <instruction to run>
+  - the instruction specified (could be any valid instruction in dockerfile) in this instruction, will be executed when your image is used as the base image of other dockerfile. examples could be `ONBUILD COPY . /var/app`, or `ONBUILD RUN /usr/app/mybuild.sh`.
+
 
 
 
