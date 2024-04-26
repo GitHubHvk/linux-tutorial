@@ -173,3 +173,34 @@ these are those images that has no tag and there is no purpose for them. they ar
   - `$`: pass the query result to `rmi` method.
   - `-q`: to show just the id of the images.
   - `--filter`: is an option to pass a filter expression to narrow the result of images list. here we want to list `gangling images`.   
+
+***
+
+# Compose
+
+in a nutshell by the help of this tool, it is possible to run multiple containers of different types that have sone interactions with each other through docker networks, together very easy and with a very simple command `docker compose up`. the compose tool itself handles every things from volume to networks needed by these containers to work together properly.
+
+   
+
+this is a tool that is built-in for docker desktop. for docker ending  in Linux it should be installed separately. as follow: 
+
+```powershell
+apt-get update
+apt-get install docker-compose-plugin		
+```
+
+   
+
+to check the installation is correct run the following command:
+
+```powershell
+docker compose version
+```
+
+
+
+**Cation:** if you have docker-engine installed and docker-desktop installed you do not need separate installation and could use built-n docker compose of the docker desktop. 
+
+
+
+this toll will execute a text file named `compose.yaml` that consists of instructions to build and run containers.
