@@ -4,6 +4,7 @@ we want to:
 
 1. run a Redis container in detach mode
 2. test our Redis container is working properly
+3. connect to it from host machine
 
 
 
@@ -37,3 +38,21 @@ to test if the Redis container is working properly we need to connect to the Lin
 3. execute command `redis-cli` in Linux shell process opened for you, to open Redis CLI for you.
 4. now as we setup our Redis container to force the user to authenticate with password, we need to execute command `auth 123`; if our `123` is a correct password which it is, it should say `ok` in response.
 5. now execute command `ping`, in response if it says `PONG`, the running Redis container is working as expected.
+
+
+
+***
+
+# connect to it from host machine
+
+to do so, first of all you need to have `redis-cli` installed in your host machine. after that run following command:
+
+```powershell
+redis-cli -h localhost -p 6379
+```
+
+
+
+now as we setup our Redis container to force the user to authenticate with password, we need to execute command `auth 123`; if our `123` is a correct password which it is, it should say `ok` in response.
+
+now execute command `ping`, in response if it says `PONG`, the running Redis container is working as expected.
