@@ -704,3 +704,11 @@ this command shows about resources in OS.
 # lsb_release -a
 
 this command show essential information about current installed OS.
+
+
+
+***
+
+# get OS architecture 
+
+dpkg --print-architecture
