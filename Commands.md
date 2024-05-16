@@ -712,3 +712,17 @@ this command show essential information about current installed OS.
 # get OS architecture 
 
 dpkg --print-architecture
+
+
+
+***
+
+# Get OS version in Linux
+
+cat /etc/os-release
+
+
+
+# Get kernel version
+
+uname -r
