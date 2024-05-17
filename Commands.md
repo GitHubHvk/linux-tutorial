@@ -726,3 +726,11 @@ cat /etc/os-release
 # Get kernel version
 
 uname -r
+
+
+
+***
+
+# hostname -i
+
+show the IP address of the host machine
