@@ -734,3 +734,19 @@ uname -r
 # hostname -i
 
 show the IP address of the host machine
+
+
+
+***
+
+# df -h
+
+lists info about OS hard disks
+
+
+
+***
+
+# tune2fs -m 0 /dev/sda1
+
+by running command `rm` the used disks may not became free, so to do it manually we can execute this command. 
