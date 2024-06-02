@@ -1,1 +1,0 @@
-vagrant is a tool to load installed linux os with VM
