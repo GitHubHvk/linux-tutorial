@@ -528,7 +528,74 @@ following steps create a file named ((gv.sh)) in ((profile.d)) directory and set
 
 
 
+**HINT:** it is possible to mix each of above command together, for example `ps aux`, `ps xu`.
+
+**HINT:** to get the process info about a specific application, for example `nginx`, you can run the command `ps aux | grep nginx`; this will list all processes related to `nginx`.    
+
+
+
 ***
+
+# pidof
+
+this command will return all process id of an application. for example to list all process related to `nginx`, execute the following command: 
+
+- pidof nginx
+
+
+
+***
+
+# top
+
+this command will show you real-time info about processes, including following:
+
+- %CPU
+  - CPU usage, 
+
+- %MEM
+  - Memory usage
+- VIRT
+  - virtual memory used
+- USER
+  - owner of the process
+- PR
+  - process priority
+- COMMAND
+  - the name of the command that started the process,
+- SHR
+  - shared memory used
+- NI
+  - nice value of the task, lower nice value has higher priority.  
+
+
+
+**HINT:** when you execute the command `top`, the output keep refreshing until you press `q`, but you can specify a limit for it when executing the command, for example to exit after 10 time repetition, execute command `top -n 10`
+
+
+
+**HINT:** to show process of a specific user for example `hamed`, execute  command `top -u hamed`.
+
+
+
+### keys in running `top`:
+
+when the command has been executed and you are monitoring the output, you can press any of the following keys for described purpose:
+
+-  z
+  - highlight running processes.
+- c
+  - shows absolute pass of the process.
+- shift+p
+  - sort the processes by PID.
+
+***
+
+# htop
+
+this is like `top` command but is more graphical. first you should install it by executing command `apt install htop`.
+
+
 
 # kill
 
