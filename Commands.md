@@ -588,12 +588,21 @@ when the command has been executed and you are monitoring the output, you can pr
   - shows absolute pass of the process.
 - shift+p
   - sort the processes by PID.
+-  q
+  -  to quit the output
+
+
+
 
 ***
 
 # htop
 
 this is like `top` command but is more graphical. first you should install it by executing command `apt install htop`.
+
+
+
+**HINT:** to sort result of this command you can click on the desired title in the output table, and sort it as descending or ascending.  this option is also available in output of `top` command.
 
 
 
@@ -618,6 +627,31 @@ this is like `top` command but is more graphical. first you should install it by
 - ###### kill -l
 
   - list all numbers related to different signals.
+
+
+
+***
+
+# `iotop`
+
+this is a command to list the disk I/O read and write. it could be usable to find the process that cause a lot of I/O.
+
+
+
+it has some options as follow:
+
+- -o
+  - to show process that are actually doing IO (`iotop -o`)
+- --version
+  - to show the installed version of the app (`iotop --version`).
+- -b 
+  - to display in noninteractive mode (`iotop -b`). 
+- -n
+  - to change the number of iteration and then exists (`iotop -n 3`).
+- -p
+  - to show IO of a specific process by ID (`iotop -p 10809`).
+- -t 
+  - to add timestamp to the output.
 
 
 
