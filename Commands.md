@@ -1,13 +1,17 @@
+
+
 # ls
 
 - ###### ls -l
-  
+
   - long list the content of current directory
+
 - ###### ls /var/cttest/ -l
-  
+
   - long list the content of (( /var/cttest/ )) directory
+
 - ###### ls -a
-  
+
   - print dot files (files that their name starts with dot)
 
 
@@ -18,13 +22,15 @@
 # cp
 
 - ###### cp file1 file2
-  
+
   - copy file1 content to file2 (if file2 does not exists it create one, id file2 exists it replace content with content of file 1)
+
 - ###### cp file1 dir2
-  
+
   - copy file1 content to directory dir2
+
 - ###### cp file1 file2 file3 dir2
-  
+
   - copy files (( file1, file2, file3 )) to directory dir2
 
 
@@ -34,10 +40,11 @@
 # mv
 
 - ###### mv file1 file2
-  
+
   - rename file (( file1 )) to (( file2 ))
+
 - ###### mv file1 dir2
-  
+
   - move file (( file1 )) to directory (( dir2 ))
 
 ***
@@ -45,7 +52,7 @@
 # touch
 
 - ###### touch file1
-  
+
   - create file1 if not exists otherwise not change the content but edits timestamp of file
 
 ***
@@ -53,10 +60,11 @@
 # rm
 
 - ###### rm file1
-  
+
   - remove file1
+
 - ###### rm dir1 -r
-  
+
   - delete directory (( dir1 )) with all contents inside it
 
 ***
@@ -66,10 +74,11 @@
 # echo
 
 - ###### echo my message
-  
+
   - prints (( my message )) to the standard output.
+
 - ###### echo *
-  
+
   - print names of all files and directory of current working
 
  
@@ -79,7 +88,7 @@
 # pwd
 
 - ###### pwd
-  
+
   - print current working directory
 
 
@@ -89,13 +98,13 @@
 # cd
 
 - ###### cd /dir1
-  
+
   - navigate to directory dir1
-  
+
 - ###### cd
-  
+
   - returns to home directory of current user
-  
+
 - ###### cd .. 
 
   - navigate to previous directory
@@ -108,7 +117,7 @@
 # mkdir
 
 - ###### mkdir dir1
-  
+
   - create new directory named dir1
 
 
@@ -118,7 +127,7 @@
 # rmdir
 
 - ###### rmdir dir1
-  
+
   - delete directory (( dir1 )) if it is empty
 
 
@@ -128,10 +137,11 @@
 # grep
 
 - ###### grep xyx /etc/passwd
-  
+
   - print all lines in file (( passwd )) that contains the word (( xyz ))
+
 - ###### grep first /var/greptest/*
-  
+
   - print all lines in all files inside (( /var/greptest )) that contains the word (( first ))
 
 
@@ -141,16 +151,19 @@
 # chmod
 
 - ###### chmod 666 file1
-  
+
   - change permission of file1 to rw-rw-rw-
+
 - ###### chmod 777 file1
-  
+
   - change permission of file1 to rwxrwxrwx
+
 - ###### chmod 700 file1
-  
+
   - change permission of file1 to rwx------
+
 - ###### chmod 707 file1
-  
+
   - change permission of file1 to rwx---rwx
 
 
@@ -223,10 +236,11 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # less
 
 - ###### less file1
-  
+
   - print content of file with pagination
+
 - ###### grep line /var/greptest/* | less
-  
+
   - show all lines containing (( line )) in all files in path (( /var/greptest )) with pagination
 
 
@@ -240,10 +254,11 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # diff
 
 - ###### diff f1 f2
-  
+
   - show different between files (( f1)) and (( f2 ))
+
 - ###### diff -u f1 f2
-  
+
   - show different between files (( f1)) and (( f2 )) with better format
 
 
@@ -253,13 +268,15 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # find
 
 - ###### file f2
-  
+
   - will print some information about file (( f2 ))
+
 - ###### find / -name f2 -print
-  
+
   - search for the file named (( f2 )) in directory (( / )) and all it's subdirectory, and print the full path of founded files.
+
 - ###### find /var -name f2 -print
-  
+
   - search for the file named (( f2 )) in directory (( /var )) and all it's subdirectory, and print the full path of founded files.
 
 
@@ -269,10 +286,11 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # head
 
 - ###### head f2
-  
+
   - print first 10 lines of the file (( f2 ))
+
 - ###### head -3 f2
-  
+
   - print first 3 lines of file (( f2 ))
 
 
@@ -282,10 +300,11 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # tail
 
 - ###### tail f2
-  
+
   - print last 10 lines in the file (( f2 ))
+
 - ###### tail -2 f2
-  
+
   - print last 2 lines of file (( f2 ))
 
 
@@ -295,19 +314,19 @@ to see sudo logs, you can run following command (( case-sensitive )):
 # sort
 
 - ###### sort f2
-  
+
   - print lines in file (( f2 )) in alphabetical order
-  
+
 - ###### sort -n f2
-  
+
   - print lines in file (( f2 )) in alphabetical and numerical  order if they start with number
-  
+
 - ###### sort -r f2
 
   - print lines in file (( f2 )) in alphabetical reverse order if they start with number
 
 - ###### sort -n -r f2
-  
+
   - print lines in file (( f2 )) in alphabetical and numerical reverse order if they start with number
 
 
@@ -325,10 +344,11 @@ use this command to change your password. it will ask you your old pass, and wil
 # shell variables
 
 - ###### V1=Hello 
-  
+
   - value (( Hello )) is set to variable (( V1 ))
+
 - ###### echo $A
-  
+
   - print the value of variable (( V1 ))
 
 
@@ -338,16 +358,19 @@ use this command to change your password. it will ask you your old pass, and wil
 # environment variables
 
 - ###### env
-  
+
   - print list of environment varables
+
 - ###### echo $HOME
-  
+
   - print home directory of the current user
+
 - ###### printenv $HOME
-  
+
   - print home directory of the current user
+
 - ###### export HOME=/home/hamed
-  
+
   - this command set the environment variable (( HOME )) equal to path (( /home/hamed )) for the current user in current session
 
 
@@ -583,13 +606,13 @@ this command will show you real-time info about processes, including following:
 when the command has been executed and you are monitoring the output, you can press any of the following keys for described purpose:
 
 -  z
-  - highlight running processes.
-- c
-  - shows absolute pass of the process.
-- shift+p
-  - sort the processes by PID.
+   - highlight running processes.
+-  c
+   - shows absolute pass of the process.
+-  shift+p
+   - sort the processes by PID.
 -  q
-  -  to quit the output
+   -  to quit the output
 
 
 
@@ -619,7 +642,7 @@ this is like `top` command but is more graphical. first you should install it by
 - ###### kill -cont 1245
 
   - continue the stopped process with id equal to 1245
-  
+
 - ###### kill -9
 
   - this command send the signal with number instead on option.
@@ -843,6 +866,31 @@ show the IP address of the host machine
 # df -h
 
 lists info about OS hard disks
+
+
+
+# df -i
+
+lists the `inode` info of the OS.
+
+to make it more readable, use option `-h`, as `df -ih`.
+
+
+
+***
+
+# du
+
+to see the real size of a path or file. for example if you have a path `/var/test`, to sea the size of it, you need to execute the following command:
+
+- du -sh /var/test
+  - s: to sum all sub directories and files.
+  - h: to show this as human-readable
+
+
+
+
+**HINT:** there is an app named `ncdu` that is needed to be installed by command `apt install ncdu`, which is more graphical, and make it possible to interact with it by `arrow` and `enter` keys. 
 
 
 
