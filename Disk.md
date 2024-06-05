@@ -151,3 +151,19 @@ to mount device by their filesystem UUID do the following steps:
 **Caution:** Linux does not write changes immediately to the filesystem, instead stores them in the RAM and perform them in a good time. so if mounting and unmounting does not happen at the time, run command ((sync)) to synchronize all the disks in system.
 
 **Caution:** filesystem mount table in located in directory ((/etc/fstab)).
+
+
+
+***
+
+# LVM
+
+it stands for logical volume manager. 
+
+we can have Logical volumes instead of physical volumes, to obstacle some problems which one of the most important one is inability to extend physical volumes easily.
+
+by the help of a logical volume that is in fact a kind of virtual storage created by combining multiple physical volumes, we can easily extend our partition.
+
+**Caution:** the type of disk must be `ext3` or `ext4`, to enable us to extend the size of our volume.
+
+**Cation:** there is a package that some commands available for us to work with logical volumes. that is `lvm2`, which need to be installed by executing `apt install lvm2`.  
