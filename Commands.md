@@ -162,9 +162,13 @@
 
   - change permission of file1 to rwx------
 
-- ###### chmod 707 file1
+- ###### chmod 707 file1 (equal to `chmod u+rwx,g-rwx,o+rwx file1`)
 
   - change permission of file1 to rwx---rwx
+
+
+
+![](D:\Tutorial\Linux\linux-tutorial\chmod-logic.png)
 
 
 
