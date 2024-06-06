@@ -2,6 +2,8 @@
 
 we want to remote to a Linux server from Linux client with SSH by key, not by password.
 
+also we want to limit users that can connect to server using `SSH`. 
+
 
 
 # Environment Setup
@@ -158,3 +160,33 @@ ssh hamed@192.168.56.106
 
 
 this will ask you for the passphrase of the key you generated in client (in our example it is `123456789`).
+
+
+
+***
+
+# Limit users in Server to use `SSH`
+
+we can limit users with ability to connect to the server with `SSH`. to do so, in server open the file `/etc/ssh/sshd_config` using the following command:
+
+```powershell
+sudo vim /etc/ssh/sshd_config
+```
+
+  
+
+and add the following line at the end of the file:
+
+```powershell
+AllowUsers root hamed 
+```
+
+
+
+finally execute the bellow command to restart the `SSH` service in the server:
+
+```powershell
+systemctl restart sshd
+```
+
+ 
