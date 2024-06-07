@@ -500,3 +500,27 @@ imagine we have an ((index.html)) file that want to serve it as a web page when 
       nginx -s reload
       ```
 
+
+
+# Logging
+
+`ngnix` by default log its service info in path specifies  `http` context by the help of directive `access_log` and `error_log`.
+
+we can format it as we need, like bellow:
+
+```powershell
+# nginx.conf
+http {
+  
+  log_format combined '$remote_addr - $remote_user [$time_local] '
+                      '"$request" $status $body_bytes_sent '
+                      '"$http_referer" "$http_user_agent"';
+  access_log /var/log/access.log combined;
+}
+```
+
+ 
+
+# Log Rotate
+
+in `nginx` by default there is config for log rotate which is located in the path `/etc/logrotate.d/nginx`. 
