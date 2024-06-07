@@ -313,6 +313,24 @@ to see sudo logs, you can run following command (( case-sensitive )):
 
 
 
+**HINT:** to follow log use the option `-f`.
+
+**Caution:** `tail` is more used than `head`. because we usually want to watch for the last logs.
+
+
+
+***
+
+# sed
+
+with this command we can find a pattern and replace it with another pattern. for example if we have a file `text.txt` and want to replace word `Node.js` with `React` in this file we would execute the following command:
+
+```
+sed -i 's/Node.js/React/g' test.txt
+```
+
+
+
 ***
 
 # sort
