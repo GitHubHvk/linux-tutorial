@@ -921,3 +921,17 @@ to see the real size of a path or file. for example if you have a path `/var/tes
 # tune2fs -m 0 /dev/sda1
 
 by running command `rm` the used disks may not became free, so to do it manually we can execute this command. 
+
+
+
+# hostnamectl
+
+this is a service to manage host name. for example to change the host-name we can execute the following command:
+
+```powershell
+hostnamectl set-hostname new_host_name
+```
+
+
+
+**HINT:** after changing host name, it is recommended to change the config in file `/etc/hosts` as `127.0.1.1 new_host_name`. 
