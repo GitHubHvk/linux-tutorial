@@ -935,3 +935,15 @@ hostnamectl set-hostname new_host_name
 
 
 **HINT:** after changing host name, it is recommended to change the config in file `/etc/hosts` as `127.0.1.1 new_host_name`. 
+
+
+
+# file lines count
+
+by executing following command you will find out how many lines of text your file has.
+
+```powershell
+wc -l myfile
+```
+
+ 
