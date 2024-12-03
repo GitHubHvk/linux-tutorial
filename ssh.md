@@ -36,3 +36,9 @@ now you can use connect to your VM Linux server through power-shell in your oper
 
 - ssh [user name in VM Linux]@[Host Only Adaptor IP of VM Linux]
   - for example: ssh hamed@192.168.56.103 
+
+
+
+# Putty CLI
+
+also it is possible to connect to a Linux via putty command line; say we have a server  
