@@ -41,4 +41,10 @@ now you can use connect to your VM Linux server through power-shell in your oper
 
 # Putty CLI
 
-also it is possible to connect to a Linux via putty command line; say we have a server  
+also it is possible to connect to a Linux via putty command line; say we have a server with IP `192.168.56.101` and a username `hamed`, and password `123`, to connect to it with putty CLI we can execute the following command:
+
+```powershell
+putty.exe -ssh hamed@192.168.56.101 -pw "123"
+```
+
+  
