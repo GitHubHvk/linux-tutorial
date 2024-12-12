@@ -194,6 +194,10 @@ imagine file (( f2 )) with permission (( rwx------ ))
 
 
 
+**HINT:** in order to be able to list the files inside the directories, it is needed for the user to have the `x` (execute) permission on the directory. in common cases the permission `xr` is needed for working with directories.
+
+
+
 ***
 
 # umask
@@ -577,6 +581,8 @@ following steps create a file named ((gv.sh)) in ((profile.d)) directory and set
 
 **HINT:** to get the process info about a specific application, for example `nginx`, you can run the command `ps aux | grep nginx`; this will list all processes related to `nginx`.    
 
+**HINT:** `$$` is a shell variable that stores the current Shell PID. for example we can call `echo $$` to see the current running shell PID. 
+
 
 
 ***
@@ -802,6 +808,12 @@ imaging following files and directories as sample:
 - ###### tar xvf tt.tar f1.txt dir1/t3.txt
 
   - this command will extract files (( f1.txt )) and (( dir1/f3.txt )).
+
+
+
+
+
+**HINT:** to preserve exact permission sets of the extracted files inside tar fire when unpacking it to your local machine, it is recommended to use `p`  option.
 
 
 
