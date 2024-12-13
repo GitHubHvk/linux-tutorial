@@ -100,7 +100,7 @@ zcat archived.tar.gz | tar xvf -
 
   
 
-in Linux, the program `tar` has an option named `z`, that is to use `zcat` capability. so we can shorten our above command as follow to decompress our file as follow:
+in Linux, the program `tar` has an option named `z`, that is to use `zcat` capability. so we can shorten our above command to decompress our file as follow:
 
 ```powershell
 tar zxvf archived.tar.gz
@@ -108,7 +108,7 @@ tar zxvf archived.tar.gz
 
    
 
-also we and archive and compress our directory `dir1` at once as following command:
+also we can archive and compress our directory `dir1` at once as following command:
 
 ```
 tar zcvf archived.tar.gz dir1/
