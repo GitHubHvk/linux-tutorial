@@ -216,21 +216,6 @@ this is a constant value (say it is 0022) that is subtracted from the values 666
 
 ***
 
-# sudoers
-
-## add user to sudoers:
-
- - su -
- - nano /etc/sudoers
- - add bellow line to the file and save and close
-   - hamed ALL=(ALL=ALL) ALL
-
-
-
-**caution:** it is better to open and modify sudoers file with (( visudo )) command, it checks the syntax before saving the file. 
-
-
-
 ## Log
 
 to see sudo logs, you can run following command (( case-sensitive )):
