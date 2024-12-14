@@ -9,10 +9,27 @@ to add a user to sudoers, at least there are 2 methods:
 
 ### Edit `sudoers` file
 
+at least there are 2 methods to add a user to sudoers list by editing the file. config it for the desired user, or create a group of users and change the role of the group;
+
+
+
+following steps are for single user:  
+
  - `su -`
  - nano /etc/sudoers
  - add bellow line to the file and save and close
    - hamed ALL=(ALL=ALL) ALL
+
+
+
+following steps are for group of users:  
+
+ - `su -`
+ - nano /etc/sudoers
+ - add bellow lines to the file and save and close (this will create a group named `ADMINS` and adds users `user1` and `user2` to it)
+   - User_Alias ADMINS = user1, user2
+   - ADMINS ALL = NOPASSWD: ALL
+   - ADMINS ALL = (ALL) ALL
 
 
 
