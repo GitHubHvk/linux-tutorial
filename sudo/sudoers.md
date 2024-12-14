@@ -28,8 +28,7 @@ following steps are for group of users:
  - nano /etc/sudoers
  - add bellow lines to the file and save and close (this will create a group named `ADMINS` and adds users `user1` and `user2` to it)
    - User_Alias ADMINS = user1, user2
-   - ADMINS ALL = NOPASSWD: ALL
-   - ADMINS ALL = (ALL) ALL
+   - ADMINS ALL = (ALL) NOPASSWD: ALL
 
 
 
@@ -50,3 +49,14 @@ adduser hamed sudo
 above command will add the user `hamed` to the `sudo` group.
 
 The change will take effect the next time the user `hamed` logs in..
+
+
+
+### Log
+
+to see `sudo` logs, you can run following `case-sensitive` command:
+
+```powershell
+journalctl SYSLOG_IDENTIFIER=sudo
+```
+
